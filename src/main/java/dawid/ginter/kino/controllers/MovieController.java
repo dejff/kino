@@ -2,6 +2,7 @@ package dawid.ginter.kino.controllers;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,7 +32,7 @@ public class MovieController {
         return movieService.addMovie(movie);
     }
     
-    @GetMapping("/movies/delete/{movieId}")
+    @DeleteMapping("/movies/{movieId}")
     public void deleteMovie(@RequestParam("movieId") Long movieId) {
         movieService.deleteMovie(movieId);
     }

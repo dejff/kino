@@ -2,17 +2,16 @@ package dawid.ginter.kino.models;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 public class Seance {
@@ -22,9 +21,12 @@ public class Seance {
     private Long id;
 
     private Integer noOfRoom;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime hourOfStart;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Movie movie;
-    private Boolean deleted;
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private Boolean deleted = false;
     
 }

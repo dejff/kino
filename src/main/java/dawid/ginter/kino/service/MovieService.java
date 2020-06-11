@@ -20,7 +20,7 @@ public class MovieService {
     }
 
     public List<Movie> getAllMovies() {
-        return movieRepository.findByDeleted(false);
+        return movieRepository.findAllByDeletedFalse();
     }
 
     public Movie addMovie(Movie movie) {

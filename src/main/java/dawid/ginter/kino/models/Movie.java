@@ -1,16 +1,13 @@
 package dawid.ginter.kino.models;
 
-import java.time.LocalDate;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 public class Movie {
@@ -19,9 +16,13 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String title;
+    @Column(nullable = false)
     private Integer duration;
-    private Boolean deleted;
-    private LocalDate yearOfProduction;
+
+    @Column(nullable = false, columnDefinition = "boolean default false")
+    private Boolean deleted = false;
+    private Integer yearOfProduction;
 
 }

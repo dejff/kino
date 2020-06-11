@@ -6,6 +6,6 @@ import dawid.ginter.kino.models.Movie;
 
 public interface MovieRepository extends JpaRepository<Movie, Long> {
     
-    public List<Movie> findByDeleted(Boolean deleted);
+    List<Movie> findAllByDeletedFalse();
     
 }

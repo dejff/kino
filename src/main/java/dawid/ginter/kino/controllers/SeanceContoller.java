@@ -2,6 +2,7 @@ package dawid.ginter.kino.controllers;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,7 +31,7 @@ public class SeanceContoller {
         return seanceService.addSeance(seance);
     }
 
-    @GetMapping("/seances/delete/{seanceId}")
+    @DeleteMapping("/seances/{seanceId}")
     public void deleteSeance(@RequestParam("seanceId") Long seanceId) {
         seanceService.deleteSeance(seanceId);
     }
