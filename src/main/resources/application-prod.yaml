@@ -6,7 +6,7 @@ spring:
       ddl-auto: update
   datasource:
     platform: postgres
-    url: jdbc:postgresql://localhost:5432/kino  
-    username: student
-    password: student
+    url: jdbc:postgresql://ruby.db.elephantsql.com:5432/koqmqdit
+    username: koqmqdit
+    password: 23Lz7yBsDpmtIsVZ8FKj-G3G6noFDLwn
     driverClassName: org.postgresql.Driver

@@ -20,7 +20,7 @@ public class SeanceService {
     }
 
     public List<Seance> getAllSeances() {
-        return seanceRepository.findByDeleted(false);
+        return seanceRepository.findAllByDeletedFalse();
     }
 
     public Seance addSeance(Seance seance) {
