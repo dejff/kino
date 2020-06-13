@@ -5,5 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import dawid.ginter.kino.models.Seance;
 
 public interface SeanceRepository extends JpaRepository<Seance, Long> {
-    public List<Seance> findByDeleted(Boolean deleted);
+    List<Seance> findAllByDeletedFalse();
 }

@@ -21,11 +21,14 @@ public class Seance {
     private Long id;
 
     private Integer noOfRoom;
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm", iso = DateTimeFormat.ISO.DATE_TIME)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss", iso = DateTimeFormat.ISO.DATE_TIME)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime hourOfStart;
+
     @ManyToOne(cascade = CascadeType.MERGE)
     private Movie movie;
+
     @Column(nullable = false, columnDefinition = "boolean default false")
     private Boolean deleted = false;
     
